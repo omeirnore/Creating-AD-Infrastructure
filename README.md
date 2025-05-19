@@ -63,6 +63,27 @@ Before beginning this project, ensure you have the following:
 
 > 📌 Make note of the **Public IP addresses** for both VMs and the **Private IP address** for DC-1 — you'll need them later for RDP and DNS configuration.
 
+<h2>🔧 Step 2: Assign a Static Private IP to DC-1</h2>
+
+To ensure that the Domain Controller (DC-1) always has the same internal IP, we need to set its private IP address to static.
+
+- In the Azure portal, navigate to **Virtual Machines** > `DC-1`
+- Under **Networking**, Select the **Network Settings** linked to the VM, then proceed to click the Network interface/IP configuration option.
+- In the NIC settings, select **IP configurations**, then click on `ipconfig1`
+
+<p align="center">
+  <img src="images/ad-3.jpg" width="750" alt="Navigating to IP configuration of DC-1" />
+</p>
+
+- Under **Private IP address settings**, change **Allocation** from `Dynamic` to `Static`
+- Click **Save**
+
+<p align="center">
+  <img src="images/ad-4.jpg" width="750" alt="Changing private IP to static" />
+</p>
+
+> 💡 A static internal IP ensures that the DNS server (DC-1) always retains the same address, which is essential for domain join and client communication.
+
 
 
 
